@@ -1,0 +1,37 @@
+{
+    "id": "smaller-journals",
+    "title": "Smaller Journals",
+    "description": "Opens journals with a smaller, configurable width that can still be resized, and optionally with the sidebar collapsed.",
+    "authors": [
+        {
+            "name": "Ladislao Lainez"
+        }
+    ],
+    "version": "1.0.0",
+    "compatibility": {
+        "minimum": "13",
+        "verified": "14"
+    },
+    "esmodules": ["smaller-journals.bundle.mjs"],
+    "styles": ["smaller-journals.css"],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        },
+        {
+            "lang": "es",
+            "name": "Español",
+            "path": "lang/es.json"
+        }
+    ],
+    "flags": {
+        "hotReload": {
+            "extensions": ["css", "html", "json"],
+            "paths": ["."]
+        }
+    },
+    "manifest": "https://github.com/L4D15/smaller-journals/releases/latest/download/module.json",
+    "download": "https://github.com/L4D15/smaller-journals/releases/download/1.0.0/smaller-journals.zip"
+}

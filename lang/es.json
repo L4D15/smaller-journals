@@ -1,0 +1,26 @@
+{
+    "SMALLER_JOURNALS": {
+        "Settings": {
+            "EntryWidth": {
+                "Name": "Ancho inicial de los diarios",
+                "Hint": "Ancho (px) con el que se abre un diario con la barra lateral colapsada. Si se abre expandida, se le suma el ancho de la barra. Después puedes redimensionar la ventana libremente."
+            },
+            "SidebarWidth": {
+                "Name": "Ancho de la barra lateral",
+                "Hint": "Ancho (px) de la barra lateral de páginas cuando está expandida. Foundry usa 300 por defecto."
+            },
+            "StartCollapsed": {
+                "Name": "Abrir con la barra lateral colapsada",
+                "Hint": "Si está activado, los diarios se abren con la barra lateral de páginas colapsada."
+            },
+            "PageWidth": {
+                "Name": "Ancho inicial de las páginas sueltas",
+                "Hint": "Ancho (px) con el que se abre una página de diario en su propia ventana (por ejemplo, al editarla). Foundry usa 600 por defecto."
+            },
+            "MinWidth": {
+                "Name": "Ancho mínimo de los diarios",
+                "Hint": "Ancho mínimo (px) al que se puede reducir un diario. Foundry usa 680 por defecto."
+            }
+        }
+    }
+}

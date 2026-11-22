@@ -1,0 +1,28 @@
+{
+    "name": "smaller-journals",
+    "version": "1.0.0",
+    "description": "Opens journals with a smaller, configurable width that can still be resized, and optionally with the sidebar collapsed.",
+    "scripts": {
+        "build": "webpack --mode production",
+        "build:dev": "webpack",
+        "dev": "webpack"
+    },
+    "author": "Ladislao Lainez",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "fs-extra": "^11.2.0",
+        "mini-css-extract-plugin": "^2.7.6",
+        "sass": "^1.69.5",
+        "sass-loader": "^13.3.2"
+    },
+    "devDependencies": {
+        "css-loader": "^6.8.1",
+        "prettier": "3.1.1",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4",
+        "zip-webpack-plugin": "^4.0.1"
+    }
+}

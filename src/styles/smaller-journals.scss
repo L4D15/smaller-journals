@@ -1,0 +1,13 @@
+/*
+ * El núcleo fija min-width: 680px en las hojas de diario, lo que impide abrirlas
+ * (o reducirlas) por debajo de ese ancho. Lo bajamos para que el ancho inicial
+ * configurado se respete y la ventana siga siendo redimensionable.
+ */
+.application.sheet.journal-entry:not(.minimized, .minimizing, .maximizing) {
+    min-width: var(--smaller-journals-min-width, 400px);
+}
+
+/* Ancho de la barra lateral expandida (el núcleo usa 300px). */
+.application.sheet.journal-entry {
+    --sidebar-width-expanded: var(--smaller-journals-sidebar-width, 300px);
+}
