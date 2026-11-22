@@ -2,13 +2,13 @@ import '../styles/smaller-journals.scss';
 
 const MODULE_ID = 'smaller-journals';
 
-/** Ancho de la barra lateral colapsada en el CSS del núcleo (--sidebar-width-collapsed). */
+/** Width of the collapsed sidebar in core's CSS (--sidebar-width-collapsed). */
 const COLLAPSED_SIDEBAR_WIDTH = 40;
 
 const setting = (key) => game.settings.get(MODULE_ID, key);
 
 /* -------------------------------------------- */
-/*  Ajustes                                     */
+/*  Settings                                    */
 /* -------------------------------------------- */
 
 function registerSettings() {
@@ -28,8 +28,8 @@ function registerSettings() {
     numberSetting('entryWidth', 550, 300, 1600);
     numberSetting('sidebarWidth', 220, 120, 400, applyCssVariables);
     game.settings.register(MODULE_ID, 'startCollapsed', {
-        name: `${t('StartCollapsed')}.Name`,
-        hint: `${t('StartCollapsed')}.Hint`,
+        name: `${t('startCollapsed')}.Name`,
+        hint: `${t('startCollapsed')}.Hint`,
         scope: 'client',
         config: true,
         type: Boolean,
@@ -39,7 +39,7 @@ function registerSettings() {
     numberSetting('minWidth', 400, 300, 680, applyCssVariables);
 }
 
-/** Expone los ajustes de CSS como variables en :root para que las use styles/smaller-journals.css. */
+/** Exposes the CSS-related settings as variables on :root, used by the module stylesheet. */
 function applyCssVariables() {
     const root = document.documentElement.style;
     root.setProperty(
@@ -53,12 +53,12 @@ function applyCssVariables() {
 }
 
 /* -------------------------------------------- */
-/*  Parches                                     */
+/*  Patches                                     */
 /* -------------------------------------------- */
 
 /**
- * Sustituye el ancho inicial de una clase de hoja, solo si quien abre la hoja no pidió un ancho
- * explícito y si la clase concreta (p. ej. la de otro módulo) no ha cambiado el ancho por defecto del núcleo.
+ * Replaces the initial width of a sheet class, only when the caller didn't request an explicit width
+ * and the concrete class (e.g. one from another module) hasn't changed core's default width.
  */
 function patchInitialWidth(cls, getWidth) {
     const coreWidth = cls.DEFAULT_OPTIONS.position.width;
@@ -78,18 +78,18 @@ function patchJournalSheets() {
         foundry.applications.sheets.journal;
     const { RENDER_STATES } = foundry.applications.api.ApplicationV2;
 
-    // Ancho inicial del diario: el configurado, más la barra lateral si se abre expandida.
+    // Initial journal width: the configured one, plus the sidebar if it opens expanded.
     patchInitialWidth(JournalEntrySheet, () => {
         const width = setting('entryWidth');
         if (setting('startCollapsed')) return width;
         return width + setting('sidebarWidth') - COLLAPSED_SIDEBAR_WIDTH;
     });
 
-    // Ancho inicial de las páginas abiertas en su propia ventana.
+    // Initial width of pages opened in their own window.
     patchInitialWidth(JournalEntryPageSheet, () => setting('pageWidth'));
 
-    // Barra lateral colapsada en el primer renderizado. Solo la primera vez que se abre la hoja en la
-    // sesión: si la reabres, conserva el estado (y el ancho) que dejaste.
+    // Collapsed sidebar on first render. Only the first time the sheet opens in the session:
+    // reopening it keeps the state (and width) you left it with.
     const configureRenderOptions =
         JournalEntrySheet.prototype._configureRenderOptions;
     JournalEntrySheet.prototype._configureRenderOptions = function (options) {

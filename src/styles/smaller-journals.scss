@@ -1,13 +1,45 @@
 /*
- * El núcleo fija min-width: 680px en las hojas de diario, lo que impide abrirlas
- * (o reducirlas) por debajo de ese ancho. Lo bajamos para que el ancho inicial
- * configurado se respete y la ventana siga siendo redimensionable.
+ * Core sets min-width: 680px on journal sheets, which prevents opening them (or shrinking them)
+ * below that width. Lower it so the configured initial width is respected and the window stays resizable.
  */
 .application.sheet.journal-entry:not(.minimized, .minimizing, .maximizing) {
     min-width: var(--smaller-journals-min-width, 400px);
 }
 
-/* Ancho de la barra lateral expandida (el núcleo usa 300px). */
+/* Width of the expanded sidebar (core uses 300px). */
 .application.sheet.journal-entry {
     --sidebar-width-expanded: var(--smaller-journals-sidebar-width, 300px);
+}
+
+/*
+ * Sidebar footer buttons (previous / add page / next).
+ * With a sidebar narrower than core's, the "Add Page" label wraps to two lines:
+ * reduce the footer padding and force a single line, truncating with an ellipsis if it doesn't fit.
+ */
+.application.sheet.journal-entry.expanded .journal-sidebar .action-buttons {
+    padding: 8px;
+    gap: 6px;
+
+    button.create {
+        min-width: 0;
+        white-space: nowrap;
+
+        span {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+/*
+ * Ownership Viewer (permission_viewer) compatibility: with the sidebar collapsed, hide its markers
+ * the same way core hides .page-ownership, so only the page number shows.
+ * Its own rule uses the V1 sheet selector (aside.journal-sidebar.collapsed), which doesn't match V2 sheets.
+ */
+.application.sheet.journal-entry:not(.expanded)
+    .journal-sidebar
+    .page-heading
+    .ownership-viewer {
+    display: none;
 }

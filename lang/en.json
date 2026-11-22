@@ -1,23 +1,23 @@
 {
     "SMALLER_JOURNALS": {
         "Settings": {
-            "EntryWidth": {
+            "entryWidth": {
                 "Name": "Initial journal width",
                 "Hint": "Width (px) a journal opens with when its sidebar is collapsed. If it opens expanded, the sidebar width is added. You can still resize the window freely afterwards."
             },
-            "SidebarWidth": {
+            "sidebarWidth": {
                 "Name": "Sidebar width",
                 "Hint": "Width (px) of the page sidebar when expanded. Foundry's default is 300."
             },
-            "StartCollapsed": {
+            "startCollapsed": {
                 "Name": "Open with collapsed sidebar",
                 "Hint": "When enabled, journals open with the page sidebar collapsed."
             },
-            "PageWidth": {
+            "pageWidth": {
                 "Name": "Initial standalone page width",
                 "Hint": "Width (px) a journal page opens with in its own window (e.g. when editing it). Foundry's default is 600."
             },
-            "MinWidth": {
+            "minWidth": {
                 "Name": "Minimum journal width",
                 "Hint": "Minimum width (px) a journal can be resized to. Foundry's default is 680."
             }
